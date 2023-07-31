@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  backend_app:
+    image: habit-tracker:latest
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app
+    depends_on:
+      - db_migrations
+
+  db_migrations:
+    image: habit-tracker:latest
+    build: .
+    command: [ "poetry", "run", "python", "manage.py", "migrate" ]
+    volumes:
+      - ./:/app
