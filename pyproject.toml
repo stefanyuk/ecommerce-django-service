@@ -6,8 +6,9 @@ authors = ["sstefanyuk <stefanyuk.andriyigor@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-Django = "^4.2.3"
+Django = "^4.2.4"
 djangorestframework = "^3.14.0"
+django-cors-headers = "^4.2.0"
 
 [tool.poetry.dev-dependencies]
 

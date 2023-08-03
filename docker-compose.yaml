@@ -17,3 +17,13 @@ services:
     command: [ "poetry", "run", "python", "manage.py", "migrate" ]
     volumes:
       - ./:/app
+
+  frontend_app:
+    image: team-challenge:latest
+    build:
+      context: ../team-challenge/
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../team-challenge/src:/app/src

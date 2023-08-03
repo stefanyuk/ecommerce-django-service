@@ -14,7 +14,7 @@ tests = ["pytest", "pytest-asyncio", "mypy (>=0.800)"]
 
 [[package]]
 name = "django"
-version = "4.2.3"
+version = "4.2.4"
 description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
 category = "main"
 optional = false
@@ -28,6 +28,17 @@ tzdata = {version = "*", markers = "sys_platform == \"win32\""}
 [package.extras]
 argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
+
+[[package]]
+name = "django-cors-headers"
+version = "4.2.0"
+description = "django-cors-headers is a Django application for handling the server headers required for Cross-Origin Resource Sharing (CORS)."
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+Django = ">=3.2"
 
 [[package]]
 name = "djangorestframework"
@@ -81,11 +92,12 @@ python-versions = ">=2"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "1d349bcf6e209e35c19ceb293c3399390cf1b9e41f95debc5bc6f431b128304e"
+content-hash = "e2261acdbd40c0df30d64d85d508ef179f0fdda67ab4da373ca7c759175c0241"
 
 [metadata.files]
 asgiref = []
 django = []
+django-cors-headers = []
 djangorestframework = []
 pytz = []
 sqlparse = []
