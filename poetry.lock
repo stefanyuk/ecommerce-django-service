@@ -53,6 +53,18 @@ django = ">=3.0"
 pytz = "*"
 
 [[package]]
+name = "pillow"
+version = "10.0.0"
+description = "Python Imaging Library (Fork)"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.extras]
+docs = ["furo", "olefile", "sphinx (>=2.4)", "sphinx-copybutton", "sphinx-inline-tabs", "sphinx-removed-in", "sphinxext-opengraph"]
+tests = ["check-manifest", "coverage", "defusedxml", "markdown2", "olefile", "packaging", "pyroma", "pytest", "pytest-cov", "pytest-timeout"]
+
+[[package]]
 name = "pytz"
 version = "2023.3"
 description = "World timezone definitions, modern and historical"
@@ -92,13 +104,14 @@ python-versions = ">=2"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "e2261acdbd40c0df30d64d85d508ef179f0fdda67ab4da373ca7c759175c0241"
+content-hash = "9b8926111821893c666cd5a415a7986bbe94a5f2afbf2ebb3907f0228243424a"
 
 [metadata.files]
 asgiref = []
 django = []
 django-cors-headers = []
 djangorestframework = []
+pillow = []
 pytz = []
 sqlparse = []
 typing-extensions = []
