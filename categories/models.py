@@ -6,7 +6,7 @@ from mptt.models import MPTTModel, TreeForeignKey
 class Category(MPTTModel):
     """Model representing Category table implemented with MPTT."""
     name = models.CharField(
-        max_length=250,
+        max_length=255,
         unique=True,
         null=False,
         blank=False,
@@ -22,12 +22,12 @@ class Category(MPTTModel):
         null=True,
         blank=True,
         related_name='children',
-        verbose_name=_("parent of category")
+        verbose_name=_("parent category")
     )
 
     class MPTTMeta:
         order_insertion_by = ['name']
-    
+
     class Meta:
         db_table = 'categories'
         managed = True
