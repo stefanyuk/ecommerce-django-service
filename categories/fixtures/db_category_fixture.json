@@ -1,41 +1,107 @@
 [
-{
-    "model": "categories.category",
-    "pk": 1,
-    "fields": {
-        "name": "Smartphones and phones",
-        "is_active": true,
-        "parent": null,
-        "lft": 1,
-        "rght": 6,
-        "tree_id": 1,
-        "level": 0
+    {
+        "model": "categories.category",
+        "pk": 1,
+        "fields": {
+            "name": "Smartphones and phones",
+            "is_active": true,
+            "parent": null,
+            "lft": 1,
+            "rght": 8,
+            "tree_id": 2,
+            "level": 0
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 2,
+        "fields": {
+            "name": "Smartphones",
+            "is_active": true,
+            "parent": 1,
+            "lft": 2,
+            "rght": 7,
+            "tree_id": 2,
+            "level": 1
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 3,
+        "fields": {
+            "name": "Apple Smartphones",
+            "is_active": true,
+            "parent": 2,
+            "lft": 3,
+            "rght": 4,
+            "tree_id": 2,
+            "level": 2
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 4,
+        "fields": {
+            "name": "Samsung Smartphones",
+            "is_active": true,
+            "parent": 2,
+            "lft": 5,
+            "rght": 6,
+            "tree_id": 2,
+            "level": 2
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 5,
+        "fields": {
+            "name": "Notebooks, tablets and PC",
+            "is_active": true,
+            "parent": null,
+            "lft": 1,
+            "rght": 8,
+            "tree_id": 1,
+            "level": 0
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 6,
+        "fields": {
+            "name": "Notebooks",
+            "is_active": true,
+            "parent": 5,
+            "lft": 2,
+            "rght": 3,
+            "tree_id": 1,
+            "level": 1
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 7,
+        "fields": {
+            "name": "Tablets",
+            "is_active": true,
+            "parent": 5,
+            "lft": 6,
+            "rght": 7,
+            "tree_id": 1,
+            "level": 1
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 8,
+        "fields": {
+            "name": "PC",
+            "is_active": true,
+            "parent": 5,
+            "lft": 4,
+            "rght": 5,
+            "tree_id": 1,
+            "level": 1
+        }
     }
-},
-{
-    "model": "categories.category",
-    "pk": 2,
-    "fields": {
-        "name": "Smartphones",
-        "is_active": true,
-        "parent": 1,
-        "lft": 2,
-        "rght": 5,
-        "tree_id": 1,
-        "level": 1
-    }
-},
-{
-    "model": "categories.category",
-    "pk": 3,
-    "fields": {
-        "name": "Apple Smartphones",
-        "is_active": true,
-        "parent": 2,
-        "lft": 3,
-        "rght": 4,
-        "tree_id": 1,
-        "level": 2
-    }
-}
-]
+    ]
+    
