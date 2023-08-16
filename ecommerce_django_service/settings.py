@@ -38,6 +38,7 @@ INSTALLED_APPS = [
 
     # Local apps
     "categories",
+    "products",
     
     # External apps
     "corsheaders",
