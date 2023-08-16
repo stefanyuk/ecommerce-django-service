@@ -41,6 +41,34 @@ python-versions = ">=3.8"
 Django = ">=3.2"
 
 [[package]]
+name = "django-js-asset"
+version = "2.1.0"
+description = "script tag with additional attributes for django.forms.Media"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+django = ">=3.2"
+
+[package.extras]
+tests = ["coverage"]
+
+[[package]]
+name = "django-mptt"
+version = "0.14.0"
+description = "Utilities for implementing Modified Preorder Tree Traversal with your Django Models and working with trees of Model instances."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+django-js-asset = "*"
+
+[package.extras]
+tests = ["coverage", "mock-django"]
+
+[[package]]
 name = "djangorestframework"
 version = "3.14.0"
 description = "Web APIs for Django, made easy."
@@ -92,12 +120,14 @@ python-versions = ">=2"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "e2261acdbd40c0df30d64d85d508ef179f0fdda67ab4da373ca7c759175c0241"
+content-hash = "0ca419c73f5571c91c509d31e06ce47018bbef32653ba48300cb2b6f59f3d6ff"
 
 [metadata.files]
 asgiref = []
 django = []
 django-cors-headers = []
+django-js-asset = []
+django-mptt = []
 djangorestframework = []
 pytz = []
 sqlparse = []
