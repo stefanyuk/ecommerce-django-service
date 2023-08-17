@@ -7,7 +7,7 @@ from uuid import uuid4
 class Product(models.Model):
     """Model representing Product table."""
     web_id = models.CharField(
-        max_length=32,
+        max_length=36,
         unique=True,
         null=False,
         blank=False,
@@ -37,7 +37,7 @@ class Product(models.Model):
         null=False,
         blank=False,
         default=True,
-        verbose_name=_("product visibility")
+        verbose_name=_("is product active")
     )
     created_at = models.DateTimeField(
         auto_now_add=True,
@@ -69,6 +69,9 @@ class Brand(models.Model):
         blank=False,
         verbose_name=_("brand name")
     )
+    
+    def __str__(self) -> str:
+        return f"{self.name}"
 
     class Meta:
         db_table = 'brands'
@@ -84,6 +87,12 @@ class ProductType(models.Model):
         null=False,
         blank=False,
         verbose_name=_("type of product")
+    )
+    
+    product_attributes = models.ManyToManyField(
+        "ProductAttribute",
+        through="ProductTypeAttribute",
+        related_name="product_types"
     )
 
     def __str__(self):
@@ -107,17 +116,42 @@ class ProductAttribute(models.Model):
     description = models.TextField(
         unique=False,
         null=False,
-        blank=False,
+        blank=True,
         verbose_name=_("product attribute description")
+    )
+    label = models.ForeignKey(
+        "Label",
+        on_delete=models.SET_NULL,
+        related_name="product_attributes",
+        null=True,
+        blank=False
     )
 
     def __str__(self):
         return self.name
-    
+
     class Meta:
         db_table = 'product_attributes'
         verbose_name = _("product attribute")
         verbose_name_plural = _("product attribute")
+
+
+class Label(models.Model):
+    name = models.CharField(
+        max_length=255,
+        unique=True,
+        null=False,
+        blank=False,
+        verbose_name=_("product attribute label")
+    )
+    
+    class Meta:
+        db_table = 'labels'
+        verbose_name = _("attribute label")
+        verbose_name_plural = _("attribute lables")
+    
+    def __str__(self) -> str:
+        return f"{self.name}"
 
 
 class ProductAttributeValue(models.Model):
@@ -162,7 +196,8 @@ class ProductItem(models.Model):
     )
     attribute_values = models.ManyToManyField(
         "ProductAttributeValue",
-        related_name="product_items"
+        related_name="product_items",
+        through="ProductItemAttributeValue"
     )
     is_active = models.BooleanField(
         default=True,
@@ -241,3 +276,26 @@ class Media(models.Model):
         db_table = "medias"
         verbose_name = _("product image")
         verbose_name_plural = _("product images")
+
+
+class ProductTypeAttribute(models.Model):
+    product_attribute = models.ForeignKey("ProductAttribute", on_delete=models.CASCADE)
+    product_type = models.ForeignKey("ProductType", on_delete=models.CASCADE)
+    sequence = models.PositiveIntegerField(null=False, blank=False)
+
+    class Meta:
+        db_table = "product_types_attributes"
+        verbose_name = _("type and attribute")
+        verbose_name_plural = "types and attributes"
+        unique_together = ["product_attribute", "product_type"]
+
+
+class ProductItemAttributeValue(models.Model):
+    attribute_value = models.ForeignKey("ProductAttributeValue", on_delete=models.CASCADE)
+    product_item = models.ForeignKey("ProductItem", on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'product_items_attribute_values'
+        verbose_name = 'product item attribute value'
+        verbose_name_plural = 'product items attribute values'
+        unique_together = ["attribute_value", "product_item"]
