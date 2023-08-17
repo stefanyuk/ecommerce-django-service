@@ -1,0 +1,114 @@
+[
+{
+    "model": "products.productattributevalue",
+    "pk": 1,
+    "fields": {
+        "product_attribute": 1,
+        "attribute_value": "Iphone 14 Pro"
+    }
+},
+{
+    "model": "products.productattributevalue",
+    "pk": 2,
+    "fields": {
+        "product_attribute": 2,
+        "attribute_value": "2022"
+    }
+},
+{
+    "model": "products.productattributevalue",
+    "pk": 3,
+    "fields": {
+        "product_attribute": 3,
+        "attribute_value": "Deep Purple"
+    }
+},
+{
+    "model": "products.productattributevalue",
+    "pk": 4,
+    "fields": {
+        "product_attribute": 4,
+        "attribute_value": "IOS 16"
+    }
+},
+{
+    "model": "products.productattributevalue",
+    "pk": 5,
+    "fields": {
+        "product_attribute": 5,
+        "attribute_value": "512 GB"
+    }
+},
+{
+    "model": "products.productattributevalue",
+    "pk": 6,
+    "fields": {
+        "product_attribute": 6,
+        "attribute_value": "6 GB"
+    }
+},
+{
+    "model": "products.productattributevalue",
+    "pk": 7,
+    "fields": {
+        "product_attribute": 7,
+        "attribute_value": "6,7\""
+    }
+},
+{
+    "model": "products.productattributevalue",
+    "pk": 8,
+    "fields": {
+        "product_attribute": 8,
+        "attribute_value": "2796x1290"
+    }
+},
+{
+    "model": "products.productattributevalue",
+    "pk": 9,
+    "fields": {
+        "product_attribute": 9,
+        "attribute_value": "OLED (Super Retina XDR)"
+    }
+},
+{
+    "model": "products.productattributevalue",
+    "pk": 10,
+    "fields": {
+        "product_attribute": 10,
+        "attribute_value": "120 Hz"
+    }
+},
+{
+    "model": "products.productattributevalue",
+    "pk": 11,
+    "fields": {
+        "product_attribute": 11,
+        "attribute_value": "Ceramic Shield"
+    }
+},
+{
+    "model": "products.productattributevalue",
+    "pk": 12,
+    "fields": {
+        "product_attribute": 3,
+        "attribute_value": "Gold"
+    }
+},
+{
+    "model": "products.productattributevalue",
+    "pk": 14,
+    "fields": {
+        "product_attribute": 5,
+        "attribute_value": "128 Gb"
+    }
+},
+{
+    "model": "products.productattributevalue",
+    "pk": 15,
+    "fields": {
+        "product_attribute": 5,
+        "attribute_value": "1 Tb"
+    }
+}
+]

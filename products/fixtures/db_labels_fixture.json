@@ -1,0 +1,30 @@
+[
+{
+    "model": "products.label",
+    "pk": 1,
+    "fields": {
+        "name": "Main"
+    }
+},
+{
+    "model": "products.label",
+    "pk": 2,
+    "fields": {
+        "name": "Operating System"
+    }
+},
+{
+    "model": "products.label",
+    "pk": 3,
+    "fields": {
+        "name": "Memory"
+    }
+},
+{
+    "model": "products.label",
+    "pk": 4,
+    "fields": {
+        "name": "Display"
+    }
+}
+]

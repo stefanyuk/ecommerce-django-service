@@ -1,0 +1,101 @@
+[
+{
+    "model": "products.productattribute",
+    "pk": 1,
+    "fields": {
+        "name": "Series",
+        "description": "",
+        "label": 1
+    }
+},
+{
+    "model": "products.productattribute",
+    "pk": 2,
+    "fields": {
+        "name": "Graduation year",
+        "description": "",
+        "label": 1
+    }
+},
+{
+    "model": "products.productattribute",
+    "pk": 3,
+    "fields": {
+        "name": "Color",
+        "description": "",
+        "label": 1
+    }
+},
+{
+    "model": "products.productattribute",
+    "pk": 4,
+    "fields": {
+        "name": "Operating System",
+        "description": "",
+        "label": 2
+    }
+},
+{
+    "model": "products.productattribute",
+    "pk": 5,
+    "fields": {
+        "name": "Internal Memory",
+        "description": "",
+        "label": 3
+    }
+},
+{
+    "model": "products.productattribute",
+    "pk": 6,
+    "fields": {
+        "name": "RAM",
+        "description": "",
+        "label": 3
+    }
+},
+{
+    "model": "products.productattribute",
+    "pk": 7,
+    "fields": {
+        "name": "Screen Diagonal",
+        "description": "",
+        "label": 4
+    }
+},
+{
+    "model": "products.productattribute",
+    "pk": 8,
+    "fields": {
+        "name": "Display Resolution",
+        "description": "",
+        "label": 4
+    }
+},
+{
+    "model": "products.productattribute",
+    "pk": 9,
+    "fields": {
+        "name": "Matrix Type",
+        "description": "",
+        "label": 4
+    }
+},
+{
+    "model": "products.productattribute",
+    "pk": 10,
+    "fields": {
+        "name": "Screen Refresh Rate",
+        "description": "",
+        "label": 4
+    }
+},
+{
+    "model": "products.productattribute",
+    "pk": 11,
+    "fields": {
+        "name": "Screen Material",
+        "description": "",
+        "label": 4
+    }
+}
+]

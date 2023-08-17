@@ -1,0 +1,16 @@
+[
+{
+    "model": "products.producttype",
+    "pk": 1,
+    "fields": {
+        "name": "Smartphone"
+    }
+},
+{
+    "model": "products.producttype",
+    "pk": 2,
+    "fields": {
+        "name": "Laptop"
+    }
+}
+]

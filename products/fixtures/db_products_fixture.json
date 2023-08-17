@@ -1,0 +1,55 @@
+[
+{
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "web_id": "ffb7b25f-3187-4e6d-9ef1-137ce6afab63",
+        "name": "Iphone 14 Pro Max",
+        "description": "",
+        "brand": 1,
+        "is_active": true,
+        "created_at": "2023-08-16T13:59:55.316Z",
+        "updated_at": "2023-08-16T13:59:55.316Z",
+        "category": [
+            1,
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+        "web_id": "aace5c67-cbcd-4484-b1c6-a11e39c3c4b9",
+        "name": "Samsung Galaxy S23 Ultra",
+        "description": "",
+        "brand": 2,
+        "is_active": true,
+        "created_at": "2023-08-16T14:00:09.275Z",
+        "updated_at": "2023-08-16T14:01:02.438Z",
+        "category": [
+            1,
+            2,
+            4
+        ]
+    }
+},
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "web_id": "ffb59d22-b4ca-491a-995e-850e0809e373",
+        "name": "Lenovo IdeaPad Gaming 3",
+        "description": "",
+        "brand": 4,
+        "is_active": true,
+        "created_at": "2023-08-16T14:01:46.945Z",
+        "updated_at": "2023-08-16T14:01:46.945Z",
+        "category": [
+            5,
+            6
+        ]
+    }
+}
+]
