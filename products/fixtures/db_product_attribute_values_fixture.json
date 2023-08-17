@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
         "product_attribute": 1,
-        "attribute_value": "Iphone 14 Pro"
+        "value": "Iphone 14 Pro"
     }
 },
 {
@@ -12,7 +12,7 @@
     "pk": 2,
     "fields": {
         "product_attribute": 2,
-        "attribute_value": "2022"
+        "value": "2022"
     }
 },
 {
@@ -20,7 +20,7 @@
     "pk": 3,
     "fields": {
         "product_attribute": 3,
-        "attribute_value": "Deep Purple"
+        "value": "Deep Purple"
     }
 },
 {
@@ -28,7 +28,7 @@
     "pk": 4,
     "fields": {
         "product_attribute": 4,
-        "attribute_value": "IOS 16"
+        "value": "IOS 16"
     }
 },
 {
@@ -36,7 +36,7 @@
     "pk": 5,
     "fields": {
         "product_attribute": 5,
-        "attribute_value": "512 GB"
+        "value": "512 GB"
     }
 },
 {
@@ -44,7 +44,7 @@
     "pk": 6,
     "fields": {
         "product_attribute": 6,
-        "attribute_value": "6 GB"
+        "value": "6 GB"
     }
 },
 {
@@ -52,7 +52,7 @@
     "pk": 7,
     "fields": {
         "product_attribute": 7,
-        "attribute_value": "6,7\""
+        "value": "6,7\""
     }
 },
 {
@@ -60,7 +60,7 @@
     "pk": 8,
     "fields": {
         "product_attribute": 8,
-        "attribute_value": "2796x1290"
+        "value": "2796x1290"
     }
 },
 {
@@ -68,7 +68,7 @@
     "pk": 9,
     "fields": {
         "product_attribute": 9,
-        "attribute_value": "OLED (Super Retina XDR)"
+        "value": "OLED (Super Retina XDR)"
     }
 },
 {
@@ -76,7 +76,7 @@
     "pk": 10,
     "fields": {
         "product_attribute": 10,
-        "attribute_value": "120 Hz"
+        "value": "120 Hz"
     }
 },
 {
@@ -84,7 +84,7 @@
     "pk": 11,
     "fields": {
         "product_attribute": 11,
-        "attribute_value": "Ceramic Shield"
+        "value": "Ceramic Shield"
     }
 },
 {
@@ -92,7 +92,7 @@
     "pk": 12,
     "fields": {
         "product_attribute": 3,
-        "attribute_value": "Gold"
+        "value": "Gold"
     }
 },
 {
@@ -100,7 +100,7 @@
     "pk": 14,
     "fields": {
         "product_attribute": 5,
-        "attribute_value": "128 Gb"
+        "value": "128 Gb"
     }
 },
 {
@@ -108,7 +108,7 @@
     "pk": 15,
     "fields": {
         "product_attribute": 5,
-        "attribute_value": "1 Tb"
+        "value": "1 Tb"
     }
 }
 ]
