@@ -161,7 +161,7 @@ class ProductAttributeValue(models.Model):
         related_name="attribute_values",
         on_delete=models.PROTECT,
     )
-    attribute_value = models.CharField(
+    value = models.CharField(
         max_length=255,
         unique=False,
         null=False,
@@ -170,7 +170,7 @@ class ProductAttributeValue(models.Model):
     )
 
     def __str__(self):
-        return f"{self.product_attribute.name}: {self.attribute_value}"
+        return f"{self.product_attribute.name}: {self.value}"
     
     class Meta:
         db_table = 'product_attribute_values'
@@ -232,11 +232,15 @@ class ProductItem(models.Model):
 
     def __str__(self):
         return f"{self.product.name}({self.sku})"
-    
+
     class Meta:
         db_table = 'product_items'
         verbose_name = _("product item")
         verbose_name_plural = _("product items")
+
+    @property
+    def highlighted_attributes(self):
+        return self.attribute_values.filter(to_highlight=True)
 
 
 class Media(models.Model):
@@ -291,11 +295,23 @@ class ProductTypeAttribute(models.Model):
 
 
 class ProductItemAttributeValue(models.Model):
-    attribute_value = models.ForeignKey("ProductAttributeValue", on_delete=models.CASCADE)
-    product_item = models.ForeignKey("ProductItem", on_delete=models.CASCADE)
+    attribute_value = models.ForeignKey(
+        "ProductAttributeValue",
+        on_delete=models.CASCADE,
+        related_name="attribute_value_item_config"
+    )
+    product_item = models.ForeignKey(
+        "ProductItem",
+        on_delete=models.CASCADE,
+        related_name="item_attribute_value_config"
+    )
+    to_highlight = models.BooleanField(default=False)
 
     class Meta:
         db_table = 'product_items_attribute_values'
         verbose_name = 'product item attribute value'
         verbose_name_plural = 'product items attribute values'
         unique_together = ["attribute_value", "product_item"]
+
+    def __str__(self) -> str:
+        return f"{self.product_item.product.name}: {self.attribute_value.value}"
