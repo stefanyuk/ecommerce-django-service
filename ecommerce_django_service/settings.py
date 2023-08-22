@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # Local apps
     "categories",
     "products",
+    "smartphones",
     
     "corsheaders",
     "rest_framework",
