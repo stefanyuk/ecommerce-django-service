@@ -4,9 +4,9 @@ from uuid import uuid4
 
 class Product(models.Model):
     name = models.CharField(max_length=255, unique=True)
-    description = models.TextField(null=True)
+    description = models.TextField(null=True, blank=True)
     web_id = models.CharField(max_length=255, default=uuid4)
-    brand_id = models.ForeignKey("Brand", on_delete=models.SET_NULL, null=True)
+    brand = models.ForeignKey("Brand", on_delete=models.SET_NULL, null=True)
     is_active = models.BooleanField(default=True)
     color = models.ForeignKey("Color", on_delete=models.SET_NULL, null=True)
     sku = models.CharField(max_length=250, unique=True)
@@ -18,7 +18,7 @@ class Product(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.name
+        return f"{self.name} {self.sku}"
 
 
 class Color(models.Model):
