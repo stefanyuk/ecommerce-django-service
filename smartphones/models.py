@@ -1,8 +1,33 @@
 from django.db import models
+from collections import defaultdict
+
+
+DISPLAY_ATTRIBUTE_LABELS = {
+    "screen_size": "Screen Size",
+    "screen_type": "Screen Type",
+    "screen_resolution": "Screen Resolution",
+    "screen_refresh_rate": "Screen Refresh Rate",
+    "screen_size": "Screen Size",
+}
+
+
+CONNECTION_ATTRIBUTE_LABELS = {
+    "sim_card_number": "Number of Sim Cards",
+    "sim_card_size": "Sim-Card Size",
+    "is_e_sim_supported": "E-Sim Support",
+}
+
+
+OPERATING_SYSTEM_LABELS = {
+    "operating_system": "Operating System",
+}
 
 
 class Smartphone(models.Model):
     product = models.OneToOneField("products.Product", primary_key=True, on_delete=models.CASCADE)
+    
+    attribute_titles = models.JSONField()
+    attribute_labels = models.JSONField()
 
     # Screen attributes
     screen_size = models.DecimalField(max_digits=5, decimal_places=2)
@@ -36,3 +61,10 @@ class Smartphone(models.Model):
 
     def __str__(self):
         return f"{self.product.name} ({self.product.sku})"
+
+    @property
+    def display_name(self):
+        return f"{self.product.name} {self.product.color.name} {self.memory} ({self.product.sku})"
+
+    def get_attributes_data(self):
+        pass

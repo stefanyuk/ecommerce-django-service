@@ -1,10 +1,11 @@
 from django.db import models
+from uuid import uuid4
 
 
 class Product(models.Model):
     name = models.CharField(max_length=255, unique=True)
-    description = models.TextField()
-    web_id = models.CharField(max_length=255)
+    description = models.TextField(null=True)
+    web_id = models.CharField(max_length=255, default=uuid4)
     brand_id = models.ForeignKey("Brand", on_delete=models.SET_NULL, null=True)
     is_active = models.BooleanField(default=True)
     color = models.ForeignKey("Color", on_delete=models.SET_NULL, null=True)
