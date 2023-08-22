@@ -1,0 +1,39 @@
+{
+    "variations": [
+        {
+            "title": "Color",
+            "is_color": true,
+            "options": [
+                {
+                    "value": "Deep Purple",
+                    "is_active": true,
+                    "code": "#4456"
+                },
+                {
+                    "value": "Gold",
+                    "is_active": false,
+                    "code": "#4456"
+                },
+                {
+                    "value": "Space Grey",
+                    "is_active": false,
+                    "code": "#4456"
+                }
+            ]
+        },
+        {
+            "title": "Internal Memory",
+            "is_color": false,
+            "options": [
+                {
+                    "value": "128 Gb",
+                    "is_active": true
+                },
+                {
+                    "value": "512 Gb",
+                    "is_active": false
+                }
+            ]
+        }
+    ]
+}

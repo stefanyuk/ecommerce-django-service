@@ -1,86 +1,101 @@
 [
-{
-    "model": "products.productitem",
-    "pk": 1,
-    "fields": {
-        "sku": "Iphone-14-Pro-Max-Deep-Purple-128Gb",
-        "qty_in_stock": 5,
-        "product_type": 1,
-        "product": 1,
-        "is_active": true,
-        "sale_price": "69999.99",
-        "created_at": "2023-08-17T09:12:25.882Z",
-        "updated_at": "2023-08-17T09:15:38.796Z"
+    {
+        "model": "products.productitem",
+        "pk": 1,
+        "fields": {
+            "sku": "Iphone-14-Pro-Max-Deep-Purple-128Gb",
+            "qty_in_stock": 5,
+            "product_type": 1,
+            "product": 1,
+            "is_active": true,
+            "sale_price": "69999.99",
+            "created_at": "2023-08-17T09:12:25.882Z",
+            "updated_at": "2023-08-17T09:15:38.796Z"
+        }
+    },
+    {
+        "model": "products.productitem",
+        "pk": 2,
+        "fields": {
+            "sku": "Iphone-14-Pro-Max-Deep-Purple-512Gb",
+            "qty_in_stock": 3,
+            "product_type": 1,
+            "product": 1,
+            "is_active": true,
+            "sale_price": "69999.00",
+            "created_at": "2023-08-17T09:15:19.157Z",
+            "updated_at": "2023-08-17T09:15:19.157Z"
+        }
+    },
+    {
+        "model": "products.productitem",
+        "pk": 3,
+        "fields": {
+            "sku": "Iphone-14-Pro-Max-Deep-Purple-1Tb",
+            "qty_in_stock": 4,
+            "product_type": 1,
+            "product": 1,
+            "is_active": true,
+            "sale_price": "69999.00",
+            "created_at": "2023-08-17T09:16:13.478Z",
+            "updated_at": "2023-08-17T09:16:13.478Z"
+        }
+    },
+    {
+        "model": "products.productitem",
+        "pk": 4,
+        "fields": {
+            "sku": "Iphone-14-Pro-Max-Gold-128Gb",
+            "qty_in_stock": 3,
+            "product_type": 1,
+            "product": 1,
+            "is_active": true,
+            "sale_price": "69999.99",
+            "created_at": "2023-08-17T09:16:44.573Z",
+            "updated_at": "2023-08-17T09:16:44.573Z"
+        }
+    },
+    {
+        "model": "products.productitem",
+        "pk": 5,
+        "fields": {
+            "sku": "Iphone-14-Pro-Max-Gold-512Gb",
+            "qty_in_stock": 2,
+            "product_type": 1,
+            "product": 1,
+            "is_active": true,
+            "sale_price": "75999.99",
+            "created_at": "2023-08-17T09:17:12.663Z",
+            "updated_at": "2023-08-17T09:17:12.663Z"
+        }
+    },
+    {
+        "model": "products.productitem",
+        "pk": 6,
+        "fields": {
+            "sku": "Iphone-14-Pro-Max-Gold-1Tb",
+            "qty_in_stock": 3,
+            "product_type": 1,
+            "product": 1,
+            "is_active": true,
+            "sale_price": "90000.00",
+            "created_at": "2023-08-17T09:17:43.053Z",
+            "updated_at": "2023-08-17T09:17:43.053Z"
+        }
+    },
+    {
+        "model": "products.productitem",
+        "pk": 7,
+        "fields": {
+            "sku": "Lenovo Idea Pad Gaming 3 (0XMRA) Shado",
+            "qty_in_stock": 3,
+            "product_type": 2,
+            "product": 3,
+            "is_active": true,
+            "sale_price": "45000.00",
+            "created_at": "2023-08-18T10:36:16.438Z",
+            "updated_at": "2023-08-18T10:36:16.438Z"
+        }
     }
-},
-{
-    "model": "products.productitem",
-    "pk": 2,
-    "fields": {
-        "sku": "Iphone-14-Pro-Max-Deep-Purple-512Gb",
-        "qty_in_stock": 3,
-        "product_type": 1,
-        "product": 1,
-        "is_active": true,
-        "sale_price": "69999.00",
-        "created_at": "2023-08-17T09:15:19.157Z",
-        "updated_at": "2023-08-17T09:15:19.157Z"
-    }
-},
-{
-    "model": "products.productitem",
-    "pk": 3,
-    "fields": {
-        "sku": "Iphone-14-Pro-Max-Deep-Purple-1Tb",
-        "qty_in_stock": 4,
-        "product_type": 1,
-        "product": 1,
-        "is_active": true,
-        "sale_price": "69999.00",
-        "created_at": "2023-08-17T09:16:13.478Z",
-        "updated_at": "2023-08-17T09:16:13.478Z"
-    }
-},
-{
-    "model": "products.productitem",
-    "pk": 4,
-    "fields": {
-        "sku": "Iphone-14-Pro-Max-Gold-128Gb",
-        "qty_in_stock": 3,
-        "product_type": 1,
-        "product": 1,
-        "is_active": true,
-        "sale_price": "69999.99",
-        "created_at": "2023-08-17T09:16:44.573Z",
-        "updated_at": "2023-08-17T09:16:44.573Z"
-    }
-},
-{
-    "model": "products.productitem",
-    "pk": 5,
-    "fields": {
-        "sku": "Iphone-14-Pro-Max-Gold-512Gb",
-        "qty_in_stock": 2,
-        "product_type": 1,
-        "product": 1,
-        "is_active": true,
-        "sale_price": "75999.99",
-        "created_at": "2023-08-17T09:17:12.663Z",
-        "updated_at": "2023-08-17T09:17:12.663Z"
-    }
-},
-{
-    "model": "products.productitem",
-    "pk": 6,
-    "fields": {
-        "sku": "Iphone-14-Pro-Max-Gold-1Tb",
-        "qty_in_stock": 3,
-        "product_type": 1,
-        "product": 1,
-        "is_active": true,
-        "sale_price": "90000.00",
-        "created_at": "2023-08-17T09:17:43.053Z",
-        "updated_at": "2023-08-17T09:17:43.053Z"
-    }
-}
-]
+    ]
+    

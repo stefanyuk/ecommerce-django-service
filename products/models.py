@@ -1,8 +1,12 @@
 from django.db import models
+from django.db.models import F
 from django.utils.translation import gettext_lazy as _
 from mptt.models import TreeManyToManyField
 from uuid import uuid4
+from django.db.models.query import QuerySet
 
+
+COLOR_ATTRIBUTE_NAME = "Color"
 
 class Product(models.Model):
     """Model representing Product table."""
@@ -53,7 +57,7 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     class Meta:
         db_table = 'products'
         verbose_name = _("product")
@@ -69,7 +73,7 @@ class Brand(models.Model):
         blank=False,
         verbose_name=_("brand name")
     )
-    
+
     def __str__(self) -> str:
         return f"{self.name}"
 
@@ -88,7 +92,6 @@ class ProductType(models.Model):
         blank=False,
         verbose_name=_("type of product")
     )
-    
     product_attributes = models.ManyToManyField(
         "ProductAttribute",
         through="ProductTypeAttribute",
@@ -113,11 +116,11 @@ class ProductAttribute(models.Model):
         blank=False,
         verbose_name=_("product attribute name")
     )
-    description = models.TextField(
+    information_tag = models.TextField(
         unique=False,
         null=False,
         blank=True,
-        verbose_name=_("product attribute description")
+        verbose_name=_("product attribute information tag")
     )
     label = models.ForeignKey(
         "Label",
@@ -125,6 +128,12 @@ class ProductAttribute(models.Model):
         related_name="product_attributes",
         null=True,
         blank=False
+    )
+    icon = models.ImageField(
+        verbose_name=_("product attribute icon"),
+        upload_to="icons/product-attribute/",
+        null=True,
+        blank=True
     )
 
     def __str__(self):
@@ -144,7 +153,7 @@ class Label(models.Model):
         blank=False,
         verbose_name=_("product attribute label")
     )
-    
+
     class Meta:
         db_table = 'labels'
         verbose_name = _("attribute label")
@@ -152,6 +161,24 @@ class Label(models.Model):
     
     def __str__(self) -> str:
         return f"{self.name}"
+
+
+class ProductAttributeValueManager(models.Manager):
+    def get_item_variation_options(self, target_item: "ProductItem") -> QuerySet:
+        return self.select_related("product_attribute")\
+            .filter(
+                product_attribute__attribute_type_config__is_common=False,
+                attribute_value_item_config__product_item__product=target_item.product
+            )\
+            .distinct()
+
+    def get_color_variation_options(self, target_item: "ProductItem") -> QuerySet:
+        variation_options = self.get_item_variation_options(target_item)
+        return variation_options.filter(product_attribute__name=COLOR_ATTRIBUTE_NAME)
+
+    def get_general_variation_options(self, target_item: "ProductItem") -> QuerySet:
+        variation_options = self.get_item_variation_options(target_item)
+        return variation_options.exclude(product_attribute__name=COLOR_ATTRIBUTE_NAME)
 
 
 class ProductAttributeValue(models.Model):
@@ -168,6 +195,8 @@ class ProductAttributeValue(models.Model):
         blank=False,
         verbose_name=_("attribute value")
     )
+
+    objects = ProductAttributeValueManager()
 
     def __str__(self):
         return f"{self.product_attribute.name}: {self.value}"
@@ -240,14 +269,42 @@ class ProductItem(models.Model):
 
     @property
     def highlighted_attributes(self):
-        return self.attribute_values.filter(to_highlight=True)
+        return self.attribute_values.filter(
+            attribute_value_item_config__to_highlight=True
+        ).annotate(
+            label=F("product_attribute__name"), icon_url=F("product_attribute__icon")
+        )
+
+    @property
+    def color(self) -> ProductAttributeValue:
+        return self.attribute_values\
+            .filter(
+                product_attribute__attribute_type_config__is_common=False,
+                product_attribute__name=COLOR_ATTRIBUTE_NAME
+            )\
+            .first()
+    
+    def get_non_color_attributes(self) -> QuerySet:
+        return self.attribute_values\
+            .select_related("product_attribute")\
+            .exclude(
+                product_attribute__name=COLOR_ATTRIBUTE_NAME
+            )
+    
+    def get_non_common_attributes(self) -> QuerySet:
+        return self.attribute_values\
+            .select_related("product_attribute")\
+            .filter(
+                product_attribute__attribute_type_config__is_common=False
+            )
 
 
 class Media(models.Model):
-    """Model representing media table, that contains data related to product item images."""
+    """Model representing media table, that contains media data related to product item images."""
     product_item = models.ForeignKey(
         "ProductItem",
-        on_delete=models.PROTECT
+        on_delete=models.PROTECT,
+        related_name="media"
     )
     image = models.ImageField(
         unique=False,
@@ -283,15 +340,27 @@ class Media(models.Model):
 
 
 class ProductTypeAttribute(models.Model):
-    product_attribute = models.ForeignKey("ProductAttribute", on_delete=models.CASCADE)
-    product_type = models.ForeignKey("ProductType", on_delete=models.CASCADE)
+    product_attribute = models.ForeignKey(
+        "ProductAttribute",
+        on_delete=models.CASCADE,
+        related_name="attribute_type_config"
+    )
+    product_type = models.ForeignKey(
+        "ProductType",
+        on_delete=models.CASCADE,
+        related_name="type_attribute_config"
+    )
     sequence = models.PositiveIntegerField(null=False, blank=False)
+    is_common = models.BooleanField(default=True)
 
     class Meta:
         db_table = "product_types_attributes"
         verbose_name = _("type and attribute")
         verbose_name_plural = "types and attributes"
         unique_together = ["product_attribute", "product_type"]
+
+    def __str__(self) -> str:
+        return f"{self.product_type.name}: {self.product_attribute.name} ({self.sequence})"
 
 
 class ProductItemAttributeValue(models.Model):
@@ -314,4 +383,4 @@ class ProductItemAttributeValue(models.Model):
         unique_together = ["attribute_value", "product_item"]
 
     def __str__(self) -> str:
-        return f"{self.product_item.product.name}: {self.attribute_value.value}"
+        return f"{self.product_item.product.name}({self.product_item.sku}): {self.attribute_value.value}"

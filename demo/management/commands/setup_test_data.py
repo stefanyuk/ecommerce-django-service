@@ -17,3 +17,4 @@ class Command(BaseCommand):
         call_command("loaddata", "db_product_attribute_values_fixture.json")
         call_command("loaddata", "db_product_items_fixture.json")
         call_command("loaddata", "db_product_items_attribute_values_fixture.json")
+        call_command("loaddata", "db_product_types_attributes_fixture.json")

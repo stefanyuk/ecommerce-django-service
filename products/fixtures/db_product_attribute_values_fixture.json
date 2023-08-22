@@ -1,114 +1,147 @@
 [
-{
-    "model": "products.productattributevalue",
-    "pk": 1,
-    "fields": {
-        "product_attribute": 1,
-        "value": "Iphone 14 Pro"
+    {
+        "model": "products.productattributevalue",
+        "pk": 1,
+        "fields": {
+            "product_attribute": 1,
+            "value": "Iphone 14 Pro"
+        }
+    },
+    {
+        "model": "products.productattributevalue",
+        "pk": 2,
+        "fields": {
+            "product_attribute": 2,
+            "value": "2022"
+        }
+    },
+    {
+        "model": "products.productattributevalue",
+        "pk": 3,
+        "fields": {
+            "product_attribute": 3,
+            "value": "Deep Purple"
+        }
+    },
+    {
+        "model": "products.productattributevalue",
+        "pk": 4,
+        "fields": {
+            "product_attribute": 4,
+            "value": "IOS 16"
+        }
+    },
+    {
+        "model": "products.productattributevalue",
+        "pk": 5,
+        "fields": {
+            "product_attribute": 5,
+            "value": "512 GB"
+        }
+    },
+    {
+        "model": "products.productattributevalue",
+        "pk": 6,
+        "fields": {
+            "product_attribute": 6,
+            "value": "6 GB"
+        }
+    },
+    {
+        "model": "products.productattributevalue",
+        "pk": 7,
+        "fields": {
+            "product_attribute": 7,
+            "value": "6,7\""
+        }
+    },
+    {
+        "model": "products.productattributevalue",
+        "pk": 8,
+        "fields": {
+            "product_attribute": 8,
+            "value": "2796x1290"
+        }
+    },
+    {
+        "model": "products.productattributevalue",
+        "pk": 9,
+        "fields": {
+            "product_attribute": 9,
+            "value": "OLED (Super Retina XDR)"
+        }
+    },
+    {
+        "model": "products.productattributevalue",
+        "pk": 10,
+        "fields": {
+            "product_attribute": 10,
+            "value": "120 Hz"
+        }
+    },
+    {
+        "model": "products.productattributevalue",
+        "pk": 11,
+        "fields": {
+            "product_attribute": 11,
+            "value": "Ceramic Shield"
+        }
+    },
+    {
+        "model": "products.productattributevalue",
+        "pk": 12,
+        "fields": {
+            "product_attribute": 3,
+            "value": "Gold"
+        }
+    },
+    {
+        "model": "products.productattributevalue",
+        "pk": 14,
+        "fields": {
+            "product_attribute": 5,
+            "value": "128 Gb"
+        }
+    },
+    {
+        "model": "products.productattributevalue",
+        "pk": 15,
+        "fields": {
+            "product_attribute": 5,
+            "value": "1 Tb"
+        }
+    },
+    {
+        "model": "products.productattributevalue",
+        "pk": 16,
+        "fields": {
+            "product_attribute": 12,
+            "value": "AMD Ryzen 5 7000 Series"
+        }
+    },
+    {
+        "model": "products.productattributevalue",
+        "pk": 17,
+        "fields": {
+            "product_attribute": 13,
+            "value": "7530U (2.00GHz)"
+        }
+    },
+    {
+        "model": "products.productattributevalue",
+        "pk": 18,
+        "fields": {
+            "product_attribute": 14,
+            "value": "Up to 4.50 GHz"
+        }
+    },
+    {
+        "model": "products.productattributevalue",
+        "pk": 19,
+        "fields": {
+            "product_attribute": 15,
+            "value": "6-core Processor"
+        }
     }
-},
-{
-    "model": "products.productattributevalue",
-    "pk": 2,
-    "fields": {
-        "product_attribute": 2,
-        "value": "2022"
-    }
-},
-{
-    "model": "products.productattributevalue",
-    "pk": 3,
-    "fields": {
-        "product_attribute": 3,
-        "value": "Deep Purple"
-    }
-},
-{
-    "model": "products.productattributevalue",
-    "pk": 4,
-    "fields": {
-        "product_attribute": 4,
-        "value": "IOS 16"
-    }
-},
-{
-    "model": "products.productattributevalue",
-    "pk": 5,
-    "fields": {
-        "product_attribute": 5,
-        "value": "512 GB"
-    }
-},
-{
-    "model": "products.productattributevalue",
-    "pk": 6,
-    "fields": {
-        "product_attribute": 6,
-        "value": "6 GB"
-    }
-},
-{
-    "model": "products.productattributevalue",
-    "pk": 7,
-    "fields": {
-        "product_attribute": 7,
-        "value": "6,7\""
-    }
-},
-{
-    "model": "products.productattributevalue",
-    "pk": 8,
-    "fields": {
-        "product_attribute": 8,
-        "value": "2796x1290"
-    }
-},
-{
-    "model": "products.productattributevalue",
-    "pk": 9,
-    "fields": {
-        "product_attribute": 9,
-        "value": "OLED (Super Retina XDR)"
-    }
-},
-{
-    "model": "products.productattributevalue",
-    "pk": 10,
-    "fields": {
-        "product_attribute": 10,
-        "value": "120 Hz"
-    }
-},
-{
-    "model": "products.productattributevalue",
-    "pk": 11,
-    "fields": {
-        "product_attribute": 11,
-        "value": "Ceramic Shield"
-    }
-},
-{
-    "model": "products.productattributevalue",
-    "pk": 12,
-    "fields": {
-        "product_attribute": 3,
-        "value": "Gold"
-    }
-},
-{
-    "model": "products.productattributevalue",
-    "pk": 14,
-    "fields": {
-        "product_attribute": 5,
-        "value": "128 Gb"
-    }
-},
-{
-    "model": "products.productattributevalue",
-    "pk": 15,
-    "fields": {
-        "product_attribute": 5,
-        "value": "1 Tb"
-    }
-}
-]
+    ]
+    

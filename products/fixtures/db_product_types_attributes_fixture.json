@@ -1,0 +1,101 @@
+[
+{
+    "model": "products.producttypeattribute",
+    "pk": 1,
+    "fields": {
+        "product_attribute": 1,
+        "product_type": 1,
+        "sequence": 1
+    }
+},
+{
+    "model": "products.producttypeattribute",
+    "pk": 2,
+    "fields": {
+        "product_attribute": 2,
+        "product_type": 1,
+        "sequence": 2
+    }
+},
+{
+    "model": "products.producttypeattribute",
+    "pk": 3,
+    "fields": {
+        "product_attribute": 3,
+        "product_type": 1,
+        "sequence": 3
+    }
+},
+{
+    "model": "products.producttypeattribute",
+    "pk": 4,
+    "fields": {
+        "product_attribute": 4,
+        "product_type": 1,
+        "sequence": 4
+    }
+},
+{
+    "model": "products.producttypeattribute",
+    "pk": 5,
+    "fields": {
+        "product_attribute": 5,
+        "product_type": 1,
+        "sequence": 5
+    }
+},
+{
+    "model": "products.producttypeattribute",
+    "pk": 6,
+    "fields": {
+        "product_attribute": 6,
+        "product_type": 1,
+        "sequence": 6
+    }
+},
+{
+    "model": "products.producttypeattribute",
+    "pk": 7,
+    "fields": {
+        "product_attribute": 7,
+        "product_type": 1,
+        "sequence": 7
+    }
+},
+{
+    "model": "products.producttypeattribute",
+    "pk": 8,
+    "fields": {
+        "product_attribute": 8,
+        "product_type": 1,
+        "sequence": 8
+    }
+},
+{
+    "model": "products.producttypeattribute",
+    "pk": 9,
+    "fields": {
+        "product_attribute": 9,
+        "product_type": 1,
+        "sequence": 9
+    }
+},
+{
+    "model": "products.producttypeattribute",
+    "pk": 10,
+    "fields": {
+        "product_attribute": 10,
+        "product_type": 1,
+        "sequence": 10
+    }
+},
+{
+    "model": "products.producttypeattribute",
+    "pk": 11,
+    "fields": {
+        "product_attribute": 11,
+        "product_type": 1,
+        "sequence": 11
+    }
+}
+]
