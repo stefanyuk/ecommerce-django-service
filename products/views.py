@@ -28,7 +28,7 @@ class ProductItemVariations(APIView):
     def get(self, request: Request, product_id: int):
         product_item = get_product_item(product_id)
         target_item_color_attribute = product_item.color
-        sibling_product_items = ProductItem.objects.filter(product=product_item.product)
+        sibling_product_items = ProductItem.objects.get_sibling_product_items(product_item)
 
         attributes = defaultdict(list)
 

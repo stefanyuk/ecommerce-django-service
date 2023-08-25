@@ -163,24 +163,6 @@ class Label(models.Model):
         return f"{self.name}"
 
 
-class ProductAttributeValueManager(models.Manager):
-    def get_item_variation_options(self, target_item: "ProductItem") -> QuerySet:
-        return self.select_related("product_attribute")\
-            .filter(
-                product_attribute__attribute_type_config__is_common=False,
-                attribute_value_item_config__product_item__product=target_item.product
-            )\
-            .distinct()
-
-    def get_color_variation_options(self, target_item: "ProductItem") -> QuerySet:
-        variation_options = self.get_item_variation_options(target_item)
-        return variation_options.filter(product_attribute__name=COLOR_ATTRIBUTE_NAME)
-
-    def get_general_variation_options(self, target_item: "ProductItem") -> QuerySet:
-        variation_options = self.get_item_variation_options(target_item)
-        return variation_options.exclude(product_attribute__name=COLOR_ATTRIBUTE_NAME)
-
-
 class ProductAttributeValue(models.Model):
     """Model representing product attribute value table."""
     product_attribute = models.ForeignKey(
@@ -196,8 +178,6 @@ class ProductAttributeValue(models.Model):
         verbose_name=_("attribute value")
     )
 
-    objects = ProductAttributeValueManager()
-
     def __str__(self):
         return f"{self.product_attribute.name}: {self.value}"
     
@@ -205,6 +185,11 @@ class ProductAttributeValue(models.Model):
         db_table = 'product_attribute_values'
         verbose_name = _("product attribute value")
         verbose_name_plural = _("product attribute values")
+
+
+class ProductItemManager(models.Manager):
+    def get_sibling_product_items(self, product_item: "ProductItem") -> QuerySet["ProductItem"]:
+        return self.filter(product=product_item.product).prefetch_related("attribute_values")
 
 
 class ProductItem(models.Model):
@@ -258,6 +243,8 @@ class ProductItem(models.Model):
         verbose_name=_("date sub-product updated"),
         help_text=_("format: Y-m-d H:M:S"),
     )
+    
+    objects = ProductItemManager()
 
     def __str__(self):
         return f"{self.product.name}({self.sku})"
@@ -279,24 +266,40 @@ class ProductItem(models.Model):
     def color(self) -> ProductAttributeValue:
         return self.attribute_values\
             .filter(
-                product_attribute__attribute_type_config__is_common=False,
+                product_attribute__is_common=False,
                 product_attribute__name=COLOR_ATTRIBUTE_NAME
             )\
             .first()
-    
+
+    @property
+    def display_name(self):
+        parts_of_the_name = [self.product.name]
+        
+        non_common_attributes = self.get_non_common_attributes()
+        
+        for attr in non_common_attributes:
+            parts_of_the_name.append(attr.value)
+        
+        parts_of_the_name.append(f"({self.sku})")
+
+        return " ".join(parts_of_the_name)
+
     def get_non_color_attributes(self) -> QuerySet:
         return self.attribute_values\
             .select_related("product_attribute")\
             .exclude(
                 product_attribute__name=COLOR_ATTRIBUTE_NAME
             )
-    
+
     def get_non_common_attributes(self) -> QuerySet:
         return self.attribute_values\
             .select_related("product_attribute")\
             .filter(
-                product_attribute__attribute_type_config__is_common=False
+                product_attribute__product_type_configuration__is_common=False
             )
+
+    def get_attributes(self) -> QuerySet:
+        return self.attribute_values.select_related("product_attribute").all()
 
 
 class Media(models.Model):
@@ -343,14 +346,14 @@ class ProductTypeAttribute(models.Model):
     product_attribute = models.ForeignKey(
         "ProductAttribute",
         on_delete=models.CASCADE,
-        related_name="attribute_type_config"
+        related_name="product_type_configuration"
     )
     product_type = models.ForeignKey(
         "ProductType",
         on_delete=models.CASCADE,
-        related_name="type_attribute_config"
+        related_name="product_type_configuration"
     )
-    sequence = models.PositiveIntegerField(null=False, blank=False)
+    display_order = models.PositiveIntegerField(null=False, blank=False)
     is_common = models.BooleanField(default=True)
 
     class Meta:
@@ -367,12 +370,12 @@ class ProductItemAttributeValue(models.Model):
     attribute_value = models.ForeignKey(
         "ProductAttributeValue",
         on_delete=models.CASCADE,
-        related_name="attribute_value_item_config"
+        related_name="product_attr_configuration"
     )
     product_item = models.ForeignKey(
         "ProductItem",
         on_delete=models.CASCADE,
-        related_name="item_attribute_value_config"
+        related_name="product_attr_configuration"
     )
     to_highlight = models.BooleanField(default=False)
 
