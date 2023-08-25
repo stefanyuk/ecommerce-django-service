@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "categories",
     "products",
     "smartphones",
+    "demo",
 
     # External apps
     "corsheaders",

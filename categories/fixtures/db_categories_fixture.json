@@ -1,0 +1,56 @@
+[
+{
+    "model": "categories.category",
+    "pk": 1,
+    "fields": {
+        "name": "Smartphones and phones",
+        "parent_category": null,
+        "is_active": true
+    }
+},
+{
+    "model": "categories.category",
+    "pk": 2,
+    "fields": {
+        "name": "Smartphones",
+        "parent_category": 1,
+        "is_active": true
+    }
+},
+{
+    "model": "categories.category",
+    "pk": 3,
+    "fields": {
+        "name": "Laptops and PCs",
+        "parent_category": null,
+        "is_active": true
+    }
+},
+{
+    "model": "categories.category",
+    "pk": 4,
+    "fields": {
+        "name": "Audio",
+        "parent_category": null,
+        "is_active": true
+    }
+},
+{
+    "model": "categories.category",
+    "pk": 5,
+    "fields": {
+        "name": "Smart Watches",
+        "parent_category": null,
+        "is_active": true
+    }
+},
+{
+    "model": "categories.category",
+    "pk": 6,
+    "fields": {
+        "name": "TVs and Multimedia",
+        "parent_category": null,
+        "is_active": true
+    }
+}
+]
