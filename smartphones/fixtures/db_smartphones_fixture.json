@@ -1,0 +1,296 @@
+[
+{
+    "model": "smartphones.smartphone",
+    "pk": 2,
+    "fields": {
+        "screen_size": "6.70",
+        "screen_type": "OLED (Super Retina XDR)",
+        "screen_resolution": "2796x1290",
+        "screen_refresh_rate": "120 Hz",
+        "screen_material": "Ceramic Sheld",
+        "sim_card_number": 2,
+        "sim_card_size": "Nano Sim",
+        "is_e_sim_supported": true,
+        "operating_system": "IOS 16",
+        "processor": "Apple A16 Bionic",
+        "number_of_cores": 6,
+        "internal_memory": "512 GB",
+        "ram": "6 GB",
+        "main_camera": "48 MP, 12 MP, 12 MP",
+        "number_of_main_cameras": 3,
+        "front_camera": "12 MP",
+        "front_camera_placement": "Cutout",
+        "is_flash_available": true,
+        "battery_life_in_hours": 12,
+        "is_fast_charging_available": true,
+        "is_wireless_charging_available": true,
+        "communication_standart": [
+            1,
+            2,
+            3,
+            4
+        ],
+        "main_camera_features": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ],
+        "front_camera_features": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ]
+    }
+},
+{
+    "model": "smartphones.smartphone",
+    "pk": 3,
+    "fields": {
+        "screen_size": "6.70",
+        "screen_type": "OLED (Super Retina XDR)",
+        "screen_resolution": "2796x1290",
+        "screen_refresh_rate": "120 Hz",
+        "screen_material": "Ceramic Sheld",
+        "sim_card_number": 2,
+        "sim_card_size": "Nano Sim",
+        "is_e_sim_supported": true,
+        "operating_system": "IOS 16",
+        "processor": "Apple A16 Bionic",
+        "number_of_cores": 6,
+        "internal_memory": "128 GB",
+        "ram": "6 GB",
+        "main_camera": "48 MP, 12 MP, 12 MP",
+        "number_of_main_cameras": 3,
+        "front_camera": "12 MP",
+        "front_camera_placement": "Cutout",
+        "is_flash_available": true,
+        "battery_life_in_hours": 12,
+        "is_fast_charging_available": true,
+        "is_wireless_charging_available": true,
+        "communication_standart": [
+            1,
+            2,
+            3,
+            4
+        ],
+        "main_camera_features": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ],
+        "front_camera_features": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ]
+    }
+},
+{
+    "model": "smartphones.smartphone",
+    "pk": 4,
+    "fields": {
+        "screen_size": "6.70",
+        "screen_type": "OLED (Super Retina XDR)",
+        "screen_resolution": "2796x1290",
+        "screen_refresh_rate": "120 Hz",
+        "screen_material": "Ceramic Sheld",
+        "sim_card_number": 2,
+        "sim_card_size": "Nano Sim",
+        "is_e_sim_supported": true,
+        "operating_system": "IOS 16",
+        "processor": "Apple A16 Bionic",
+        "number_of_cores": 6,
+        "internal_memory": "1 TB",
+        "ram": "6 GB",
+        "main_camera": "48 MP, 12 MP, 12 MP",
+        "number_of_main_cameras": 3,
+        "front_camera": "12 MP",
+        "front_camera_placement": "Cutout",
+        "is_flash_available": true,
+        "battery_life_in_hours": 12,
+        "is_fast_charging_available": true,
+        "is_wireless_charging_available": true,
+        "communication_standart": [
+            1,
+            2,
+            3,
+            4
+        ],
+        "main_camera_features": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ],
+        "front_camera_features": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ]
+    }
+},
+{
+    "model": "smartphones.smartphone",
+    "pk": 5,
+    "fields": {
+        "screen_size": "6.70",
+        "screen_type": "OLED (Super Retina XDR)",
+        "screen_resolution": "2796x1290",
+        "screen_refresh_rate": "120 Hz",
+        "screen_material": "Ceramic Sheld",
+        "sim_card_number": 2,
+        "sim_card_size": "Nano Sim",
+        "is_e_sim_supported": true,
+        "operating_system": "IOS 16",
+        "processor": "Apple A16 Bionic",
+        "number_of_cores": 6,
+        "internal_memory": "128 GB",
+        "ram": "6 GB",
+        "main_camera": "48 MP, 12 MP, 12 MP",
+        "number_of_main_cameras": 3,
+        "front_camera": "12 MP",
+        "front_camera_placement": "Cutout",
+        "is_flash_available": true,
+        "battery_life_in_hours": 12,
+        "is_fast_charging_available": true,
+        "is_wireless_charging_available": true,
+        "communication_standart": [
+            1,
+            2,
+            3,
+            4
+        ],
+        "main_camera_features": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ],
+        "front_camera_features": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ]
+    }
+},
+{
+    "model": "smartphones.smartphone",
+    "pk": 6,
+    "fields": {
+        "screen_size": "6.70",
+        "screen_type": "OLED (Super Retina XDR)",
+        "screen_resolution": "2796x1290",
+        "screen_refresh_rate": "120 Hz",
+        "screen_material": "Ceramic Sheld",
+        "sim_card_number": 2,
+        "sim_card_size": "Nano Sim",
+        "is_e_sim_supported": true,
+        "operating_system": "IOS 16",
+        "processor": "Apple A16 Bionic",
+        "number_of_cores": 6,
+        "internal_memory": "512 GB",
+        "ram": "6 GB",
+        "main_camera": "48 MP, 12 MP, 12 MP",
+        "number_of_main_cameras": 3,
+        "front_camera": "12 MP",
+        "front_camera_placement": "Cutout",
+        "is_flash_available": true,
+        "battery_life_in_hours": 12,
+        "is_fast_charging_available": true,
+        "is_wireless_charging_available": true,
+        "communication_standart": [
+            1,
+            2,
+            3,
+            4
+        ],
+        "main_camera_features": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ],
+        "front_camera_features": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ]
+    }
+},
+{
+    "model": "smartphones.smartphone",
+    "pk": 7,
+    "fields": {
+        "screen_size": "6.70",
+        "screen_type": "OLED (Super Retina XDR)",
+        "screen_resolution": "2796x1290",
+        "screen_refresh_rate": "120 Hz",
+        "screen_material": "Ceramic Sheld",
+        "sim_card_number": 2,
+        "sim_card_size": "Nano Sim",
+        "is_e_sim_supported": true,
+        "operating_system": "IOS 16",
+        "processor": "Apple A16 Bionic",
+        "number_of_cores": 6,
+        "internal_memory": "1 TB",
+        "ram": "6 GB",
+        "main_camera": "48 MP, 12 MP, 12 MP",
+        "number_of_main_cameras": 3,
+        "front_camera": "12 MP",
+        "front_camera_placement": "Cutout",
+        "is_flash_available": true,
+        "battery_life_in_hours": 12,
+        "is_fast_charging_available": true,
+        "is_wireless_charging_available": true,
+        "communication_standart": [
+            1,
+            2,
+            3,
+            4
+        ],
+        "main_camera_features": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ],
+        "front_camera_features": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ]
+    }
+}
+]

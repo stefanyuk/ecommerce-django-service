@@ -11,9 +11,10 @@ class SmartphoneDetail(APIView):
         try:
             smartphone = Smartphone.objects\
                 .select_related("product")\
-                .select_related("product__color")\
-                .select_related("product__brand")\
-                .get(product_id=smartphone_id)
+                .select_related("color")\
+                .select_related("brand")\
+                .select_related("category")\
+                .get(id=smartphone_id)
         except Smartphone.DoesNotExist:
             return Response(status=400)
 

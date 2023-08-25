@@ -1,5 +1,6 @@
 from django.db import models
 from collections import defaultdict
+from products.models import Product
 
 
 DISPLAY_ATTRIBUTE_TITLES = {
@@ -23,45 +24,78 @@ OPERATING_SYSTEM_TITLES = {
 }
 
 
-class Smartphone(models.Model):
-    product = models.OneToOneField("products.Product", primary_key=True, on_delete=models.CASCADE)
+class Smartphone(Product):
+    product = models.OneToOneField(
+        "products.Product",
+        on_delete=models.CASCADE,
+        parent_link=True,
+        related_name="smartphone"
+    )
 
     # Screen attributes
-    screen_size = models.DecimalField(max_digits=5, decimal_places=2)
-    screen_type = models.CharField(max_length=255)
-    screen_resolution = models.CharField(max_length=255)
-    screen_refresh_rate = models.CharField(max_length=255)
+    screen_size = models.DecimalField(verbose_name="screen size", max_digits=5, decimal_places=2)
+    screen_type = models.CharField(verbose_name="screen type", max_length=255)
+    screen_resolution = models.CharField(verbose_name="screen resolution", max_length=255)
+    screen_refresh_rate = models.CharField(verbose_name="screen refresh rate", max_length=255)
+    screen_material = models.CharField(verbose_name="screen material", max_length=255)
 
-    # Connection attributes
-    sim_card_number = models.PositiveIntegerField()
-    sim_card_size = models.CharField(max_length=255)
-    is_e_sim_supported = models.BooleanField()
+    # Sim Card attributes
+    sim_card_number = models.PositiveIntegerField(verbose_name="number of sim cards")
+    sim_card_size = models.CharField(verbose_name="size of sim card", max_length=255)
+    is_e_sim_supported = models.BooleanField(verbose_name="E-Sim support")
 
     # Operating system
-    operating_system = models.CharField(max_length=255)
+    operating_system = models.CharField(verbose_name="operating system", max_length=255)
 
     # Processor
     processor = models.CharField(max_length=255)
     number_of_cores = models.PositiveIntegerField()
 
-    # Memory
-    memory = models.CharField(max_length=255)
+    # Communication standarts
+    communication_standart = models.ManyToManyField(
+        "CommunicationStandarts",
+        related_name="smartphones",
+        verbose_name="communication standarts"
+    )
 
-    # Camera
-    main_camera = models.CharField(max_length=255)
-    front_camera = models.CharField(max_length=255)
+    # Memory
+    internal_memory = models.CharField(max_length=255)
+    ram = models.CharField(max_length=255)
+
+    # Main Camera
+    main_camera = models.CharField(verbose_name="main camera", max_length=255)
+    main_camera_features = models.ManyToManyField(
+        "CameraFeatures",
+        verbose_name="main camera features",
+        related_name="smartphones_with_main_camera_feature"
+    )
+    number_of_main_cameras = models.PositiveIntegerField(verbose_name="number of main cameras")
+
+    front_camera_features = models.ManyToManyField(
+        "CameraFeatures",
+        verbose_name="front camera features",
+        related_name="smartphones_with_front_camera_feature"
+    )
+    front_camera = models.CharField(verbose_name="front camera", max_length=255)
+    front_camera_placement = models.CharField(verbose_name="front camera placement", max_length=255)
     is_flash_available = models.BooleanField()
-    video_resolution = models.CharField(max_length=255)
 
     # Battery
-    battery_life = models.CharField(max_length=255)
+    battery_life_in_hours = models.PositiveIntegerField(verbose_name="battery life in hours")
+    is_fast_charging_available = models.BooleanField(verbose_name="fast charging")
+    is_wireless_charging_available = models.BooleanField(verbose_name="wireless charging")
+    
+    class Meta:
+        db_table = 'smartphones'
+        verbose_name = 'smartphone'
+        verbose_name_plural = 'smartphones'
 
     def __str__(self):
         return f"{self.display_name}"
 
     @property
     def display_name(self):
-        return f"{self.product.name} {self.product.color.name} {self.memory} ({self.product.sku})"
+        return f"{self.name} {self.color.name} {self.internal_memory} ({self.sku})"
 
     def get_attributes_data(self):
         attributes = defaultdict(list)
@@ -93,3 +127,27 @@ class Smartphone(models.Model):
 
     def get_highlighted_attributes_data(self):
         pass
+
+
+class CommunicationStandarts(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+    
+    class Meta:
+        db_table = 'communication_standarts'
+        verbose_name = 'communication standart'
+        verbose_name_plural = 'communication standarts'
+    
+    def __str__(self):
+        return f"{self.name}"
+
+
+class CameraFeatures(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+
+    class Meta:
+        db_table = 'camera_features'
+        verbose_name = 'camera feature'
+        verbose_name_plural = 'camera features'
+
+    def __str__(self):
+        return f"{self.name}"
