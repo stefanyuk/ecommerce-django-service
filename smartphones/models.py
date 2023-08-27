@@ -1,27 +1,63 @@
 from django.db import models
-from collections import defaultdict
+from django.db.models.query import QuerySet
 from products.models import Product
 
 
-DISPLAY_ATTRIBUTE_TITLES = {
-    "screen_size": "Screen Size",
-    "screen_type": "Screen Type",
-    "screen_resolution": "Screen Resolution",
-    "screen_refresh_rate": "Screen Refresh Rate",
-    "screen_size": "Screen Size",
+BATTERY_COLUMN_NAMES = {
+    "battery_life_in_hours",
+    "is_fast_charging_available",
+    "is_wireless_charging_available",
 }
 
-
-CONNECTION_ATTRIBUTE_TITLES = {
-    "sim_card_number": "Number of Sim Cards",
-    "sim_card_size": "Sim-Card Size",
-    "is_e_sim_supported": "E-Sim Support",
+FRONT_CAMERA_COLUMN_NAMES = {
+    "front_camera",
+    "front_camera_placement",
+    "front_camera_features",
 }
 
-
-OPERATING_SYSTEM_TITLES = {
-    "operating_system": "Operating System",
+MAIN_CAMERA_COLUMN_NAMES = {
+    "main_camera",
+    "main_camera_features",
+    "number_of_main_cameras",
+    "is_flash_available"
 }
+
+MEMORY_COLUMN_NAMES = {"internal_memory", "ram"}
+
+PROCESSOR_COLUMN_NAMES = {"processor", "number_of_cores"}
+
+OPERATING_SYSTEM_NAMES = {"operating_system",}
+
+SCREEN_COLUMN_NAMES = {
+    "screen_size",
+    "screen_type",
+    "screen_resolution",
+    "screen_refresh_rate",
+    "screen_material",
+}
+
+MAIN_ATTR_COLUMN_NAMES = {"color", "released_on"}
+
+SIM_CARD_COLUMN_NAMES = {
+    "sim_card_number",
+    "sim_card_size",
+    "is_e_sim_supported",
+}
+
+MEMORY_ATTR_LABEL = "Memory"
+OPERATING_SYSTEM_ATTR_LABEL = "Operating System"
+DISPLAY_ATTR_LABEL = "Display"
+BATTERY_ATTR_LABEL = "Battery"
+FRONT_CAMERA_LABEL = "Front Camera"
+MAIN_CAMERA_LABEL = "Main Camera"
+
+
+class SmartphoneManager(models.Manager):
+    def get_color_variations_by_internal_memory(self, smartphone: "Smartphone") -> QuerySet["Smartphone"]:
+        return self.filter(name=smartphone.name, internal_memory=smartphone.internal_memory).distinct("color")
+
+    def get_internal_memory_variations_by_color(self, smartphone: "Smartphone") -> QuerySet["Smartphone"]:
+        return self.filter(name=smartphone.name, color=smartphone.color).distinct("internal_memory")
 
 
 class Smartphone(Product):
@@ -52,7 +88,7 @@ class Smartphone(Product):
     number_of_cores = models.PositiveIntegerField()
 
     # Communication standarts
-    communication_standart = models.ManyToManyField(
+    communication_standarts = models.ManyToManyField(
         "CommunicationStandarts",
         related_name="smartphones",
         verbose_name="communication standarts"
@@ -71,6 +107,7 @@ class Smartphone(Product):
     )
     number_of_main_cameras = models.PositiveIntegerField(verbose_name="number of main cameras")
 
+    # Front Camera
     front_camera_features = models.ManyToManyField(
         "CameraFeatures",
         verbose_name="front camera features",
@@ -84,7 +121,9 @@ class Smartphone(Product):
     battery_life_in_hours = models.PositiveIntegerField(verbose_name="battery life in hours")
     is_fast_charging_available = models.BooleanField(verbose_name="fast charging")
     is_wireless_charging_available = models.BooleanField(verbose_name="wireless charging")
-    
+
+    objects = SmartphoneManager()
+
     class Meta:
         db_table = 'smartphones'
         verbose_name = 'smartphone'
@@ -97,36 +136,69 @@ class Smartphone(Product):
     def display_name(self):
         return f"{self.name} {self.color.name} {self.internal_memory} ({self.sku})"
 
-    def get_attributes_data(self):
-        attributes = defaultdict(list)
-
-        for attr in self.__dict__.keys():
-            if attr in DISPLAY_ATTRIBUTE_TITLES:
-                attributes["Display"].append(
-                    {
-                        "value": getattr(self, attr),
-                        "title": DISPLAY_ATTRIBUTE_TITLES[attr]
-                    }
-                )
-            elif attr in CONNECTION_ATTRIBUTE_TITLES:
-                attributes["Connection"].append(
-                    {
-                        "value": getattr(self, attr),
-                        "title": CONNECTION_ATTRIBUTE_TITLES[attr]
-                    }
-                )
-            elif attr in OPERATING_SYSTEM_TITLES:
-                attributes["Operating System"].append(
-                    {
-                        "value": getattr(self, attr),
-                        "title": OPERATING_SYSTEM_TITLES[attr]
-                    }
-                )
-
-        return attributes
-
     def get_highlighted_attributes_data(self):
         pass
+
+    def get_attributes_data(self):
+        attributes = super().get_attributes_data()
+        attributes += [
+            self._get_memory_attributes_data(),
+            self._get_main_camera_attributes_data(),
+            self._get_front_camera_attributes_data(),
+        ]
+        return attributes
+
+    def _get_front_camera_attributes_data(self) -> dict[str, list[str | list]]:
+        front_camera_attributes = {FRONT_CAMERA_LABEL: []}
+
+        for field in self._meta.get_fields():
+            if field.column in FRONT_CAMERA_COLUMN_NAMES:
+                if field.column == "front_camera_features":
+                    value = [feature.name for feature in getattr(self, field.column).all()]
+                else:
+                    value = getattr(self, field.column)
+
+                front_camera_attributes[FRONT_CAMERA_LABEL].append(
+                    {
+                        "value": value,
+                        "title": self.get_field_title(field)
+                    }
+                )
+
+        return front_camera_attributes
+
+    def _get_main_camera_attributes_data(self):
+        main_camera_attributes = {MAIN_CAMERA_LABEL: []}
+
+        for field in self._meta.get_fields():
+            if field.column in MAIN_CAMERA_COLUMN_NAMES:
+                if field.column == "main_camera_features":
+                    value = [feature.name for feature in getattr(self, field.column).all()]
+                else:
+                    value = getattr(self, field.column)
+
+                main_camera_attributes[MAIN_CAMERA_LABEL].append(
+                    {
+                        "value": value,
+                        "title": self.get_field_title(field)
+                    }
+                )
+
+        return main_camera_attributes
+
+    def _get_memory_attributes_data(self):
+        memory_attributes = {MEMORY_ATTR_LABEL: []}
+
+        for field in self._meta.get_fields():
+            if field.column in MEMORY_COLUMN_NAMES:
+                memory_attributes[MEMORY_ATTR_LABEL].append(
+                    {
+                        "value": getattr(self, field.column),
+                        "title": self.get_field_title(field)
+                    }
+                )
+
+        return memory_attributes
 
 
 class CommunicationStandarts(models.Model):
@@ -136,7 +208,7 @@ class CommunicationStandarts(models.Model):
         db_table = 'communication_standarts'
         verbose_name = 'communication standart'
         verbose_name_plural = 'communication standarts'
-    
+
     def __str__(self):
         return f"{self.name}"
 

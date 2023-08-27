@@ -1,7 +1,13 @@
 from django.db import models
+from django.urls import reverse
+
 from uuid import uuid4
 
+
 MIN_QTY_IN_STOCK = 0
+MAIN_ATTR_LABEL = "Main"
+COLOR_ATTR_TITLE = "Color"
+RELEASE_YEAR_ATTR_TITLE = "Release year"
 
 
 class Product(models.Model):
@@ -21,7 +27,7 @@ class Product(models.Model):
     weight = models.DecimalField(verbose_name="weight", max_digits=10, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    
+
     class Meta:
         db_table = 'products'
         verbose_name = 'product'
@@ -30,11 +36,33 @@ class Product(models.Model):
     def __str__(self):
         return f"{self.name} {self.sku}"
 
-    def is_available(self):
+    def is_available(self) -> bool:
         return self.qty_in_stock > MIN_QTY_IN_STOCK
+
+    def get_field_title(self, field) -> str:
+        return field.verbose_name.capitalize()
     
-    def get_field_title(self):
-        pass
+    def get_attributes_data(self) -> list[dict]:
+        return [self._get_main_attributes_data()]
+
+    def get_absolute_url(self):
+        return reverse(f"{self._meta.model_name}-detail", kwargs={f"{self._meta.model_name}_id": self.pk})
+
+    def _get_main_attributes_data(self):
+        main_attributes = {MAIN_ATTR_LABEL: []}
+
+        main_attributes[MAIN_ATTR_LABEL] += [
+            {
+                "value": self.color.name,
+                "title": COLOR_ATTR_TITLE
+            },
+            {
+                "value": self.released_on.year,
+                "title": RELEASE_YEAR_ATTR_TITLE
+            }
+        ]
+
+        return main_attributes       
 
 
 class Color(models.Model):
