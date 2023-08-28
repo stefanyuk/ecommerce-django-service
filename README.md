@@ -9,13 +9,27 @@ From your command line:
 - cd ecommerce-django-service
 ```
 
+Create file with environment variables. The name must be the same as in the command below: 
+```
+- touch .env
+```
+
+Add to the file variables specified in the '.env.dist' template.
+
+
+Run application in Docker:
+
+```
+- docker-compose up -d --build
+```
+
 Generate test data:
 
 ```
 - make setup_test_data
 ```
 
-Run server:
-```
-- make run_server
-```
+Now you can open the following url http://127.0.0.1:8000/admin and login to the application admin with following credentials:
+
+- username: admin
+- password: 1234
