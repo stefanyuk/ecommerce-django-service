@@ -1,0 +1,30 @@
+[
+{
+    "model": "smartphones.communicationstandarts",
+    "pk": 1,
+    "fields": {
+        "name": "2G (GPRS/EDGE)"
+    }
+},
+{
+    "model": "smartphones.communicationstandarts",
+    "pk": 2,
+    "fields": {
+        "name": "3G (WCDMA/UMTS/HSPA)"
+    }
+},
+{
+    "model": "smartphones.communicationstandarts",
+    "pk": 3,
+    "fields": {
+        "name": "4G (LTE)"
+    }
+},
+{
+    "model": "smartphones.communicationstandarts",
+    "pk": 4,
+    "fields": {
+        "name": "5G"
+    }
+}
+]

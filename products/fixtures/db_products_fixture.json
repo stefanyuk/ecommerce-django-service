@@ -1,0 +1,134 @@
+[
+{
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+        "name": "Iphone 14 Pro Max",
+        "description": "The iPhone 14 Pro and Pro Max feature a new Super Retina XDR display with updated ProMotion technology that allows for an Always-On display, a first for an iPhone. The Always-On display is made possible through a new 1Hz to 120Hz refresh rate along with improved power efficient technologies.",
+        "web_id": "921cff25-377d-4a3c-9e9c-957c743fd89b",
+        "brand": 1,
+        "is_active": true,
+        "color": 2,
+        "sku": "11111",
+        "sale_price": "45000.00",
+        "stock_price": "40000.00",
+        "qty_in_stock": 3,
+        "category": 2,
+        "released_on": "2022-09-16",
+        "warranty_period_in_months": 12,
+        "weight": "240.00",
+        "created_at": "2023-08-25T10:50:18.064Z",
+        "updated_at": "2023-08-25T10:50:18.064Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "name": "Iphone 14 Pro Max",
+        "description": "The iPhone 14 Pro and Pro Max feature a new Super Retina XDR display with updated ProMotion technology that allows for an Always-On display, a first for an iPhone. The Always-On display is made possible through a new 1Hz to 120Hz refresh rate along with improved power efficient technologies.",
+        "web_id": "8c645631-4b65-415d-9bb5-ad31be1bc2f5",
+        "brand": 1,
+        "is_active": true,
+        "color": 2,
+        "sku": "22222",
+        "sale_price": "45000.00",
+        "stock_price": "40000.00",
+        "qty_in_stock": 3,
+        "category": 2,
+        "released_on": "2022-09-16",
+        "warranty_period_in_months": 12,
+        "weight": "240.00",
+        "created_at": "2023-08-25T10:53:14.906Z",
+        "updated_at": "2023-08-25T10:53:14.906Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+        "name": "Iphone 14 Pro Max",
+        "description": "The iPhone 14 Pro and Pro Max feature a new Super Retina XDR display with updated ProMotion technology that allows for an Always-On display, a first for an iPhone. The Always-On display is made possible through a new 1Hz to 120Hz refresh rate along with improved power efficient technologies.",
+        "web_id": "aba89f7b-6d81-4a5a-8a5c-a2ec6110fa03",
+        "brand": 1,
+        "is_active": true,
+        "color": 2,
+        "sku": "33333",
+        "sale_price": "45000.00",
+        "stock_price": "40000.00",
+        "qty_in_stock": 3,
+        "category": 2,
+        "released_on": "2022-09-16",
+        "warranty_period_in_months": 12,
+        "weight": "240.00",
+        "created_at": "2023-08-25T10:53:50.340Z",
+        "updated_at": "2023-08-25T10:53:50.340Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+        "name": "Iphone 14 Pro Max",
+        "description": "The iPhone 14 Pro and Pro Max feature a new Super Retina XDR display with updated ProMotion technology that allows for an Always-On display, a first for an iPhone. The Always-On display is made possible through a new 1Hz to 120Hz refresh rate along with improved power efficient technologies.",
+        "web_id": "8e6f90df-9ff8-4f75-8435-4a6f5d4605f0",
+        "brand": 1,
+        "is_active": true,
+        "color": 7,
+        "sku": "44444",
+        "sale_price": "45000.00",
+        "stock_price": "40000.00",
+        "qty_in_stock": 3,
+        "category": 2,
+        "released_on": "2022-09-16",
+        "warranty_period_in_months": 12,
+        "weight": "240.00",
+        "created_at": "2023-08-25T10:55:05.665Z",
+        "updated_at": "2023-08-25T10:55:05.665Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 6,
+    "fields": {
+        "name": "Iphone 14 Pro Max",
+        "description": "The iPhone 14 Pro and Pro Max feature a new Super Retina XDR display with updated ProMotion technology that allows for an Always-On display, a first for an iPhone. The Always-On display is made possible through a new 1Hz to 120Hz refresh rate along with improved power efficient technologies.",
+        "web_id": "9428ac75-70b6-4bdc-8830-7111537edb9c",
+        "brand": 1,
+        "is_active": true,
+        "color": 7,
+        "sku": "55555",
+        "sale_price": "52000.00",
+        "stock_price": "44000.00",
+        "qty_in_stock": 2,
+        "category": 2,
+        "released_on": "2022-09-16",
+        "warranty_period_in_months": 12,
+        "weight": "240.00",
+        "created_at": "2023-08-25T10:55:40.317Z",
+        "updated_at": "2023-08-25T10:55:40.317Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 7,
+    "fields": {
+        "name": "Iphone 14 Pro Max",
+        "description": "The iPhone 14 Pro and Pro Max feature a new Super Retina XDR display with updated ProMotion technology that allows for an Always-On display, a first for an iPhone. The Always-On display is made possible through a new 1Hz to 120Hz refresh rate along with improved power efficient technologies.",
+        "web_id": "7fa28602-c685-4d84-9ad3-46b4ff2a22f6",
+        "brand": 1,
+        "is_active": true,
+        "color": 7,
+        "sku": "666666",
+        "sale_price": "52000.00",
+        "stock_price": "44000.00",
+        "qty_in_stock": 2,
+        "category": 2,
+        "released_on": "2022-09-16",
+        "warranty_period_in_months": 12,
+        "weight": "240.00",
+        "created_at": "2023-08-25T10:56:08.266Z",
+        "updated_at": "2023-08-25T10:56:08.266Z"
+    }
+}
+]

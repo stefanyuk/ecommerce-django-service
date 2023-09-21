@@ -1,0 +1,44 @@
+[
+{
+    "model": "smartphones.camerafeatures",
+    "pk": 1,
+    "fields": {
+        "name": "Auto Focus"
+    }
+},
+{
+    "model": "smartphones.camerafeatures",
+    "pk": 2,
+    "fields": {
+        "name": "Support for shooting 4K"
+    }
+},
+{
+    "model": "smartphones.camerafeatures",
+    "pk": 3,
+    "fields": {
+        "name": "Flash"
+    }
+},
+{
+    "model": "smartphones.camerafeatures",
+    "pk": 4,
+    "fields": {
+        "name": "Stabilization"
+    }
+},
+{
+    "model": "smartphones.camerafeatures",
+    "pk": 5,
+    "fields": {
+        "name": "Telephoto Lens"
+    }
+},
+{
+    "model": "smartphones.camerafeatures",
+    "pk": 6,
+    "fields": {
+        "name": "Ultra wide angle lens"
+    }
+}
+]

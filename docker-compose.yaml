@@ -6,6 +6,8 @@ services:
     build: .
     ports:
       - "8000:8000"
+    env_file:
+      - .env
     volumes:
       - ./:/app
     depends_on:
@@ -14,16 +16,33 @@ services:
   db_migrations:
     image: habit-tracker:latest
     build: .
+    env_file:
+      - .env
     command: [ "poetry", "run", "python", "manage.py", "migrate" ]
     volumes:
       - ./:/app
-
-  frontend_app:
-    image: team-challenge:latest
-    build:
-      context: ../team-challenge/
-      dockerfile: Dockerfile
+  
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
-      - "3000:3000"
+      - "5432:5432"
     volumes:
-      - ../team-challenge/src:/app/src
+      - data:/var/lib/postgresql/data
+
+  # frontend_app:
+  #   image: team-challenge:latest
+  #   build:
+  #     context: ../team-challenge/
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - ../team-challenge/src:/app/src
+
+volumes:
+  data:
